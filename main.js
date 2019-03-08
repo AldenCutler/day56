@@ -18,7 +18,7 @@ import * as tf from '@tensorflow/tfjs';
 import * as knnClassifier from '@tensorflow-models/knn-classifier';
 
 // Number of classes to classify
-const NUM_CLASSES = 3;
+const NUM_CLASSES = 4;
 // Webcam Image size. Must be 227. 
 const IMAGE_SIZE = 227;
 // K value for KNN
@@ -137,6 +137,25 @@ class Main {
           // Update info text
           if (exampleCount[i] > 0) {
             this.infoTexts[i].innerText = ` ${exampleCount[i]} examples - ${res.confidences[i] * 100}%`
+          }
+          if(i==0){
+            var status = document.getElementById("status");
+                status.innerText = "idle"
+          }
+
+          if(i==1){
+            var status = document.getElementById("status");
+                status.innerText = "takeoff"
+          }
+
+          if(i==2){
+            var status = document.getElementById("status");
+                status.innerText = "hover"
+          }
+
+          if(i==3){
+            var status = document.getElementById("status");
+                status.innerText = "land"
           }
         }
       }
